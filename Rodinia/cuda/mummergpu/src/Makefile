@@ -9,9 +9,9 @@ CUDA_INSTALL_PATH := $(CUDA_DIR)
 
 # Compilers
 NVCC       := $(CUDA_INSTALL_PATH)/bin/nvcc  $(GENCODE_SM10) $(GENCODE_SM13) $(GENCODE_ARCH) $(GENCODE_SM20) $(GENCODE_SM30) $(GENCODE_SM35) $(GENCODE_SM50) $(GENCODE_SM60) $(GENCODE_SM62)
-CXX        := g++ -fopenmp $(PROFILE)
+CXX        := g++ -fopenmp -fPIE $(PROFILE)
 CC         := gcc 
-LINK       := g++ -fopenmp -m64 -fPIC $(PROFILE)
+LINK       := g++ -fopenmp -m64 -fPIE -fPIC $(PROFILE)
 
 # Add source files here
 STATIC_LIB := libmummergpu.a
